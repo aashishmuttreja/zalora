@@ -5612,6 +5612,45 @@ For more information, check out our <a href="https://support.zalora.sg/hc/en-us?
 </style>
 
 <script>
+$(document).ready(function() {
+	
+	//generic settings
+	let cookie="Aashish";
+	let title = document.title;
+
+	// register you may also like link clicks
+	$(".zrs__product-link").off().on("click", function(event) {
+		event.preventDefault();
+
+		// get product info clicked n store in an array
+		let $this = $(this);
+		let pImg = $this.find(".zrs__product-image").attr('src');
+		let pName = $this.find(".zrs__product-name").text();
+		let pPrice = "";
+
+		if ($this.find(".zrs__price--special").text().indexOf('NOW') >= 0) {
+			// there is a special price use the special price
+			pPrice = $this.find(".zrs__price--special").text();
+		} else {
+			// use the usual price
+			pPrice = $this.find(".zrs__price").eq(0).text();
+		}
+
+		ORA.click({
+            "sendSessionInfo": true,
+            "data": {
+				"wt.ti": title,
+				"wt.co_f": cookie,
+				"ora.z_prImg1": pImg.trim(),
+				"ora.z_prName1": pName.trim(),
+				"ora.z_prPrice1": pPrice.replace(/\s+/g, '').replace('NOW', '').trim()
+			}
+        });	
+
+	}); // end of product link click
+
+});// end of document ready	
+	
 var preload;
 
 if (/*@cc_on!@*/false) { // IE sniffing with conditional comments
