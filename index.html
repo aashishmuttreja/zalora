@@ -5642,7 +5642,7 @@ $(document).ready(function() {
 				"wt.ti": title,
 				"wt.co_f": cookie,
 				"ora.z_prImg1": pImg.trim(),
-				"ora.z_prName1": pName.trim(),
+				"ora.z_prName1": decodeURIComponent(pName.trim()),
 				"ora.z_prPrice1": pPrice.replace(/\s+/g, '').replace('NOW', '').trim()
 			}
         });	
