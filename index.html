@@ -21,6 +21,8 @@
 <script type="text/javascript" src="https://service.maxymiser.net/api/sandbox/eu/maxduk72.com/c5e850/mmapi.js"></script>	
 
 <!-- Begin BlueKai Tag -->
+<script type="text/javascript">  // Set up global vars window.bluekai_service = window.bluekai_service || {}; window.bluekai_service.functions = window.bluekai_service.functions || {}; window.bluekai_service.bkuuid_caller = window.bluekai_service.bkuuid_caller || {};  // FUNCTION : Receive BKUUID from iframe (postMessage handler) bluekai_service.functions.bkuuid_parent_receiver = function(event) {   if (event.origin.indexOf("tags.bluekai.com") > -1) {   if (window.bluekai_service.bkuuid_caller.__bluekai_data_sent === false && typeof event.data !== 'undefined' && event.data.source === 'bluekai') {   // Drop into permanent cookie (using container site ID)  document.cookie = "bku_1p=" + event.data.bluekaiIds.container_id + ":" + event.data.bluekaiIds.bk_uuid + ";path=/;domain=" +  document.domain + ";expires=Thu, 31 Dec 2099 00:00:00 GMT";   window.bluekai_service.bkuuid_caller.__bluekai_data_sent = true;   }   }  }  // ### EXECUTION ### window.bluekai_service.bkuuid_caller.__bluekai_data_sent = false; addEventListener('message', window.bluekai_service.functions.bkuuid_parent_receiver, false); </script>
+	
 <iframe name="__bkframe" height="0" width="0" frameborder="0" style="display:none;position:absolute;clip:rect(0px 0px 0px 0px)" src="about:blank"></iframe>
 <script type="text/javascript" src="https://tags.bkrtx.com/js/bk-coretag.js"></script>
 <script type="text/javascript">
